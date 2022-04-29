@@ -18,7 +18,34 @@ export default {
       // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
       { rel: 'stylesheet', href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" },
-    ]
+    ],
+    // script: [
+    //   {
+    //     type: 'text/javascript',
+    //     hid: 'fb-customer-chat',
+    //     body: true,
+    //     innerHTML: `
+    //       var chatbox = document.getElementById('fb-customer-chat');
+    //       chatbox.setAttribute("page_id", "1175565702494581");
+    //       chatbox.setAttribute("attribution", "biz_inbox");
+    
+    //       window.fbAsyncInit = function() {
+    //         FB.init({
+    //           xfbml            : true,
+    //           version          : 'v11.0'
+    //         });
+    //       };
+    
+    //       (function(d, s, id) {
+    //         var js, fjs = d.getElementsByTagName(s)[0];
+    //         if (d.getElementById(id)) return;
+    //         js = d.createElement(s); js.id = id;
+    //         js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    //         fjs.parentNode.insertBefore(js, fjs);
+    //       }(document, 'script', 'facebook-jssdk'));`
+    //   },
+    // ],
+    // __dangerouslyDisableSanitizersByTagID: { 'fb-customer-chat': ['innerHTML'] },
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -28,7 +55,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    
+    { src: '~/plugins/vue-fb-customer-chat.js', ssr: false }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

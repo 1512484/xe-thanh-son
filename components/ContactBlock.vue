@@ -18,6 +18,23 @@
             </div>
         </v-container>
     </v-layout>
+    <v-dialog v-model="dialog" width="300">
+        <v-card class="px-3 py-1">
+            <v-card-title class="text-center headline">
+                <v-icon size="60" color="success" class="mx-auto mb-5">mdi-checkbox-marked-circle</v-icon>
+                <span class="break-word">Lời nhắn của bạn đã được chuyển đi thành công. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất!</span>
+            </v-card-title>
+            <v-card-actions class="mt-3">
+                <v-layout justify-center>
+                    <v-btn color="primary darken-1" width="100" @click="dialog = false">Ok</v-btn>
+                </v-layout>
+            </v-card-actions>
+        </v-card>
+    </v-dialog>
+
+    <v-overlay :value="openLoading" style="z-index: 99999; pointer-event: none">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
 </div>
 </template>
 
@@ -51,7 +68,9 @@ export default {
                     return true;
                 }
             ],
-            contentRules: [v => !!v || ('Vui lòng nhập nội dung')]
+            contentRules: [v => !!v || ('Vui lòng nhập nội dung')],
+            dialog: false,
+            openLoading: false
         }
     },
     methods: {
@@ -66,9 +85,29 @@ export default {
         sendMessage() {
             let isValid = this.$refs.form.validate();
             if(isValid) {
-                console.log('Ok roi nha');
-            } else {
-                console.log('Loi roi nha');
+                this.openLoading = true;
+                var apiUrlGet = "https://jsonplaceholder.typicode.com/posts";
+                fetch(apiUrlGet, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        name: this.name,
+                        email: this.email,
+                        phone: this.phone,
+                        content: this.content
+                    }),
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    },
+                }).then(response => response.json()).then(data => {
+                    console.log('data: ', data);
+                    this.$refs.form.reset();
+                    this.name = "";
+                    this.email = "";
+                    this.phone = "";
+                    this.content = "";
+                    this.openLoading = false;
+                    this.dialog = true;
+                });
             }
         }
     }

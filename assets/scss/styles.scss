@@ -82,6 +82,10 @@ body,
     cursor: pointer !important;
 }
 
+.break-word {
+    word-break: break-word;
+}
+
 // .flex {
 //     display: flex;
 //     &-center {
