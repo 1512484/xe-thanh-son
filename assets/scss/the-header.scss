@@ -1,0 +1,105 @@
+.v-app-bar {
+    position: relative;
+    height: auto !important;
+    transition: 0.2s ease;
+    .v-toolbar__content {
+        padding: 0;
+        height: unset !important;
+        .container {
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+    }
+    &.show-bg {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+        .v-toolbar__content {
+            .container {
+                border-bottom: none;
+            }
+        }
+    }
+    .logo {
+        max-width: 9.44rem;
+    }
+    .v-btn:not(.v-btn--round).v-size--default {
+        &.link-btn {
+            font-size: var(--font-size-sm);
+            border-radius: 0;
+            text-transform: uppercase;
+            &::before {
+                display: none;
+            }
+            .v-btn__content {
+                opacity: 0.7;
+                font-weight: var(--font-weight-medium);
+            }
+            &.active {
+                .v-btn__content {
+                    opacity: 1;
+                    font-weight: var(--font-weight-semibold);
+                }
+            }
+        }
+    }
+    p {
+        font-size: var(--font-size-sm);
+    }
+    .link-group {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @media (max-width: 959px) {
+        .v-app-bar__nav-icon {
+            margin-left: -1rem;
+        }
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    @media (max-width: 595px) {
+        &:not(.show-bg) {
+            p {
+                color: var(--v-white-base);
+            }
+            // .v-toolbar__content {
+            //     .container {
+            //         border-color: var(--v-white-base);
+            //     }
+            // }
+            .v-app-bar__nav-icon {
+                .v-icon {
+                    color: var(--v-white-base);
+                }
+            }
+        }
+    }
+}
+
+.mini-sidebar-menu-list {
+    .v-list-item--link:before {
+        background-color: unset;
+    }
+    .v-list-item {
+        opacity: 0.7;
+        font-weight: var(--font-weight-medium);
+        &.active {
+            opacity: 1;
+            font-weight: var(--font-weight-semibold);
+        }
+    }
+}
+
+[content-class="mini-sidebar-menu"] {
+    max-width: 350px;
+    .logo {
+        max-width: 9.44rem;
+        margin-bottom: 1rem;
+    }
+}

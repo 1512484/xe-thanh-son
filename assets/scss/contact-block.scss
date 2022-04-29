@@ -1,0 +1,99 @@
+.contact {
+    background-color: var(--v-primary-base);
+    &-content {
+        padding: 0;
+        padding: 4.375rem 0;
+        // padding-left: 44.5rem;
+        // padding-left: 49.44%;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        // .left-content {
+        //     width: 32.78%;
+        // }
+        .right-content {
+            max-width: 30.5rem;
+            z-index: 2;
+        }
+        h2, p {
+            color: var(--v-white-base);
+        }
+        p {
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .v-text-field {
+            border-radius: var(--border-radius);
+            .v-input__control {
+                .v-input__slot {
+                    padding: 0 !important;
+                    margin-bottom: 0;
+                    .v-text-field__slot {
+                        margin-right: 0;
+                        input, textarea {
+                            font-size: var(--font-size-lg);
+                            padding: 1rem;
+                            max-height: unset;
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+            .v-text-field__details {
+                padding: 0;
+                .v-messages__message {
+                    // color: var(--v-error-base) !important;
+                    color: var(--v-white-base) !important;
+                    margin-top: 3px;
+                    line-height: 1.2;
+                }
+            }
+        }
+        .send-btn {
+            width: 9.675rem;
+            height: 3.0625rem !important;
+            font-size: var(--font-size-sm);
+            margin-top: 1rem;
+            .v-btn__content {
+                font-weight: var(--font-weight-bold);
+            }
+        }
+    }
+    &-img {
+        position: absolute;
+        bottom: 0;
+        left: -26%;
+        width: 83.67%;
+        transform: translateY(29.17%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    @media (max-width: 959px) {
+        &-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        &-img {
+            position: relative;
+            order: 3;
+            transform: unset;
+            left: unset;
+            margin-bottom: -33.17%;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 595px) {
+        &-img {
+            margin-bottom: -37.17%;
+        }
+    }
+
+    @media (max-width: 400px) {
+        &-img {
+            bottom: -5%;
+        }
+    }
+}
