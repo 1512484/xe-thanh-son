@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "SET NODE_OPTIONS=--openssl-legacy-provider && nuxt",
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && nuxt build",
+    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && nuxt start",
+    "generate": "SET NODE_OPTIONS=--openssl-legacy-provider && nuxt generate"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "@nuxtjs/vuetify": "^1.12.3"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }
