@@ -1,6 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  mode:'universal',
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
+  },
+  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: false,
+
+  target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s',
@@ -11,7 +20,16 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Lorem ipsum dolor sit amet' },
+      { hid: 'keywords', name: 'keywords', content: 'Lorem ipsum dolor sit amet' },
+      { hid: "og:title", name:"og:title", property: "og:title", content: "Xe Thanh Son" },
+      { hid: "apple-mobile-web-app-title", name: "apple-mobile-web-app-title", content: "Xe Thanh Son" },
+      { hid: "og:site_name", name: "og:site_name", property: "og:site_name", content: "Xe Thanh Son" },
+      { hid: "og:description", name: "og:description", property: "og:description", content: "Lorem ipsum dolor sit amet" },
+      { hid: 't-type', name: 'twitter:card', content: 'summary_large_image' },
+      { hid: 't-type', name: 'twitter:title', content: 'Xe Thanh Son' },
+      { hid: 't-type', name: 'twitter:description', content: 'Lorem ipsum dolor sit amet' },
+      { hid: 'og:image', property: 'og:image', content:  "/banner-img.svg" },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
